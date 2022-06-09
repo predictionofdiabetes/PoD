@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Diabetes prediction</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+  <nav class="light-green lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Are you worried that you might be Diabetic?</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Home</a></li>
+      </ul>
+
+  </nav>
+
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+     <h5 style="text-align: center; color: brown; font-weight: 600;">{{pred}}</h5>
+      <h1 class="header center black-text">Predict Diabetes</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Predict the probability that you may be diabetic
+        <br>
+        </h5>
+      </div>
+  
+
+      
+
+
+     <div class="row">
+        <form action='/predict' method="post" class="col s12">
+            <div class="row">
+                <div class="input-field col s4">
+                    <label for="first_name"><b>Pregnancies (0-15)</b></label>
+                    <br>
+                    <input placeholder="No. of Pregnancies" name="1" id="first_name" type="text" class="validate">
+                </div>
+                <div class="input-field col s4">
+                    <label for="last_name"><b>Glucose (40-250) </b></label>
+                    <br>
+                    <input id="last_name" name="2" placeholder="Glucose level in sugar"  type="text" class="validate">
+    
+                </div>
+    
+                <div class="input-field col s4">
+                    <label for="_name"><b>BloodPressure (20-140)</b></label>
+                    <br>
+                    <input id="_name" name="3" placeholder="BloodPressure" type="text" class="validate">
+    
+                </div>
+                <div class="input-field col s4">
+                    <label for="first_name"><b>SkinThickness (5-80)</b></label>
+                    <br>
+                    <input placeholder="SkinThickness" name="4" id="first_name" type="text" class="validate">
+                </div>
+                <div class="input-field col s4">
+                    <label for="last_name"><b>Insulin (0-1000) </b></label>
+                    <br>
+                    <input id="last_name" name="5" placeholder="Insulin level"  type="text" class="validate">
+                </div>
+                <div class="input-field col s4">
+                  <label ><b>BMI(10-100)</b></label>
+                  <br>
+                  <input name = '6' placeholder="Body Mass Index">
+
+                </div>
+                <div class="input-field col s4">
+                    <label for="last_name"><b>DiabetesPedigreeFunction (0-2.5)</b></label>
+                    <br>
+                    <input id="last_name" name="7" placeholder="DiabetesPedigreeFunction"  type="text" class="validate">
+                </div>
+                <div class="input-field col s4">
+                    <label for="_name"><b>Age (10-120)</b></label>
+                    <br>
+                    <input id="_name" name="8" placeholder="Age" type="text" class="validate">
+                </div>
+    
+          </div>
+    
+          <div class="row center">
+    
+              <button type="submit" class="btn-large waves-effect waves-light light-green">Submit and predict probability</button>
+
+          </div>
+        </form>
+  </div>
+
+      <br>
+
+     
+    <br><br>
+  </div>
+  
+
+  <footer class="page-footer light-green">
+    <div class="footer-copyright">
+      <div class="container" style="padding-bottom: 1rem; position: fixed; font-size: 1.2rem; margin-left: 5rem;">
+        <p>&copy; A16</p>
+        <p>ayaansyed795@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+
+   
+  <div>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {font-family: Arial, Helvetica, sans-serif;}
+  * {box-sizing: border-box;}
+  
+  /* Button used to open the chat form - fixed at the bottom of the page */
+  .open-button {
+    background-color: #ffa600;
+    color: white;
+    padding: 16px 10px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 46px;
+    right: 56px;
+    width: 80px;
+    border-radius: 100%;
+    text-align: center;
+  }
+  
+  /* The popup chat - hidden by default */
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+  
+  /* Full-width textarea */
+  .form-container textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
+  }
+  
+  /* When the textarea gets focus, do something */
+  .form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/send button */
+  .form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: red;
+    text-align: center;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+  </style>
+  </head>
+  <body>
+  
+  
+  <button class="open-button" onclick="openForm()">Chat</button>
+  
+  <div class="chat-popup" id="myForm">
+    <form action="/action_page.php" class="form-container">
+      
+  <iframe width="300" height="400" allow="microphone;" src="https://bot.dialogflow.com/ce960f1e-fc96-41b8-8181-07f46e005197"></iframe>
+      
+     
+      <button type="button" class="btn cancel" onclick="closeForm()" style="padding-top: 0px;"><center>Close</center></button>
+    </form>
+  </div>
+   
+<script>
+  function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+  </script>
+  
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src=".js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
+
+ 
